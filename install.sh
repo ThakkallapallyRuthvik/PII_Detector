@@ -1,12 +1,10 @@
 #!/bin/bash
 
-echo "Downloading agent.py..."
-curl -o agent.py https://raw.githubusercontent.com/ThakkallapallyRuthvik/PII_Detector/refs/heads/main/agent.py
+AGENT_URL="https://raw.githubusercontent.com/ThakkallapallyRuthvik/PII_Detector/main/agent.py"
+AGENT_PATH="$HOME/agent.py"
 
-if [ $? -ne 0 ]; then
-    echo "Failed to download agent.py"
-    exit 1
-fi
+# Download agent.py
+curl -o "$AGENT_PATH" "$AGENT_URL"
 
-echo "Running agent.py..."
-python3 agent.py
+# Run agent.py
+python3 "$AGENT_PATH"
