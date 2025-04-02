@@ -1,10 +1,9 @@
 @echo off
-echo Downloading agent.py...
-powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/ThakkallapallyRuthvik/PII_Detector/refs/heads/main/agent.py', 'agent.py')"
-if %errorlevel% neq 0 (
-    echo Failed to download agent.py
-    exit /b
-)
+set AGENT_URL=https://raw.githubusercontent.com/ThakkallapallyRuthvik/PII_Detector/main/agent.py
+set AGENT_PATH=%USERPROFILE%\agent.py
 
-echo Running agent.py...
-python agent.py
+:: Download agent.py
+powershell -Command "& {Invoke-WebRequest %AGENT_URL% -OutFile %AGENT_PATH%}"
+
+:: Run agent.py
+python %AGENT_PATH%
