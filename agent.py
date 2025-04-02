@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 # Allowed file types
-FILE_EXTENSIONS = {".txt", ".pdf", ".csv", ".log"}
+FILE_EXTENSIONS = {".txt", ".pdf", ".csv", ".xml",".docx"}
 
 # Function to detect OS and get the scan directory
 def get_scan_directory():
